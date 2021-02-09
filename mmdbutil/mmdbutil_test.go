@@ -1,15 +1,15 @@
-package fileutil
+package mmdbutil
 
 import (
 	"testing"
 )
 
 func TestFromIPBeginAndEndToIPNet(t *testing.T) {
-	if "a.html" != CreateOutputFilename("a.css", "html") {
+	if "a.mmdb" != CreateFilename("a.css") {
 		t.Error("Error on the extension substitution.")
 	}
 
-	if "a/b/cdefg.html" != CreateOutputFilename("a/b/cdefg.css", "html") {
+	if "a/b/cdefg.mmdb" != CreateFilename("a/b/cdefg.css") {
 		t.Error("Error on the extension substitution.")
 	}
 }
