@@ -26,6 +26,10 @@ func ParseIPOrCIDR(ipOrCidr string) *net.IPNet {
 }
 
 func FromIPBeginAndEndToIPNet(begin net.IP, end net.IP) *net.IPNet {
+	if begin.Equal(net.ParseIP("0.0.0.0")) || begin.Equal(net.ParseIP("127.0.0.0")) {
+		return nil
+	}
+
 	var mask = 32
 	for mask > 0 {
 		cidr := begin.String() + fmt.Sprintf("/%d", mask)
