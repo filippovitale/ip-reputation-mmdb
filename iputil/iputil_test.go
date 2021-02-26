@@ -32,4 +32,8 @@ func TestParseIPOrCIDR(t *testing.T) {
 	if !(fmt.Sprintf("%s", ParseIPOrCIDR("2001:db8::")) == "2001:db8::/128") {
 		t.Error("Error creating the cidr block.")
 	}
+
+	if ParseIPOrCIDR("# random string #") != nil {
+		t.Error("Error creating a cidr block from a random string.")
+	}
 }

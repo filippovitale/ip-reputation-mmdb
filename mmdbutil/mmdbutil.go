@@ -15,7 +15,6 @@ func NewMMDB(dbType string, dbDesc string) *mmdbwriter.Tree {
 		mmdbwriter.Options{
 			DatabaseType:            dbType,
 			Description:             map[string]string{"en": dbDesc},
-			DisableIPv4Aliasing:     true,
 			IncludeReservedNetworks: true,
 			RecordSize:              recordSize,
 		},
